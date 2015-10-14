@@ -1,0 +1,27 @@
+<div class="row ">
+
+<h1 style="text-align:center">Contact</h1>
+
+<p>Here at whatslooking we are advocates of local business and the communities that support them. (this is just blurb text)</p>
+
+<p>If you share our passion please contact us below!</p>
+
+<%= form_for(@contact) do |f| %>
+  <div>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+  </div>
+  <div>
+  <%= f.label(:email) %>
+  <%= f.email_field(:email) %>
+  </div>
+  <div>
+  <%= f.label(:message) %>
+  <%= f.text_area(:message) %>
+  </div>
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>
+
+</div>

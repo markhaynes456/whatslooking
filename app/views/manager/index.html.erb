@@ -1,0 +1,79 @@
+<div class="row">
+  <h1 class="text-center"> Page Manager </h1>
+</div>
+<div class="row">
+  <h2 class="text-center">Adverts</h2>
+<table>
+  <thead>
+  <tr>
+    <td>Title</td>
+    <td>Email</td>
+    <td>Category</td>
+    <td>body</td>
+    <td>image</td>
+  </tr>
+  </thead>
+  <tbody>
+    <% @adverts.each do |ad|  %>
+      <%= form_for(ad) do |f| %>
+      <tr>
+        <td><%= f.text_field(:title) %></td>
+        <td><%= f.text_field(:email) %></td>
+        <td><%= select_tag('advert[category]', options_for_select(ad.categories,:selected => ad.category)) %></td>
+        <td><%= f.text_area(:body) %></td>
+        <td><%= f.file_field(:image) %></td>
+        <td><%= f.submit("Edit",:class=>"button round") %> <%= link_to("Delete",advert_path(ad), :method=>"Delete", :data=>{:confirm=>"are you sure you want to delete #{ad.title}?"},:class=>"button round")%> </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class="row">
+  <h2 class="text-center">Comments</h2>
+<table>
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>Message</td>
+  </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment|  %>
+      <%= form_for(comment) do |f| %>
+      <tr>
+        <td><%= f.text_field(:name) %></td>
+        <td><%= f.text_area(:message) %></td>
+        <td><%= f.submit("Edit",:class=>"button round") %> <%= link_to("Delete",comment_path(comment), :method=>"Delete", :data=>{:confirm=>"are you sure you want to delete #{comment.name}?"},:class=>"button round")%> </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+</div>
+
+<div class="row">
+  <h2 class="text-center">Messages - Contact Form</h2>
+<table>
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Message</td>
+  </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact|  %>
+      <%= form_for(contact) do |f| %>
+      <tr>
+        <td><%= f.text_field(:name) %></td>
+        <td><%= f.text_field(:email) %></td>
+        <td><%= f.text_area(:message) %></td>
+        <td><%= f.submit("Edit",:class=>"button round") %> <%= link_to("Delete",contact_path(contact), :method=>"Delete", :data=>{:confirm=>"are you sure you want to delete #{contact.name}?"},:class=>"button round")%> </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+</div>

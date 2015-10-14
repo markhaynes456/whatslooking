@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+<h1 style="text-align:center">Categories</h1>
+      <div class="row ">
+      <ul class="breadcrumbs"> 
+        <li><%= link_to("All",controller:"adverts") %></li>
+        <li><%= link_to("Community",controller:"adverts",category:"Community") %></li>
+        <li><%= link_to("Events",controller:"adverts",category:"Events") %></li>
+        <li><%= link_to("Jobs",controller:"adverts",category:"Jobs") %></li>
+        <li><%= link_to("Property",controller:"adverts",category:"Property") %></li>
+        <li><%= link_to("Services",controller:"adverts",category:"Services") %></li>
+        <li><%= link_to("Trades",controller:"adverts",category:"Trades") %></li>
+        <li><%= link_to("Deals",controller:"adverts",category:"Deals") %></li>
+      </ul>
+      </div>
+      <% @adverts.each do |advert| %>
+      <div class="row">
+        <div class="large-3 medium-3 columns">
+          <a href="#"> <span> </span><%= image_tag(advert.image.url(:medium)) %></a>
+        </div>
+        <div class="medium-9 large-9 columns">
+          <h3> <%= advert.title %> </h3>
+          <h4> Category: <%= advert.category %> </h4> 
+          <p> <%= advert.body %> </p>
+          <p> <b> Email: </b> <%= advert.email %> </p>
+        </div>
+      </div>
+      <div class="row">
+      <div class="medium-10 large-7 right">
+        <h5>Comments</div>
+      </div>
+      </div>
+      <% advert.comments.all.each do |comment| %>
+      <div class="row"> 
+        <div class="medium-7 large-7 columns right">
+          <p> <i>"<%= comment.message%>"</i> </p>
+        </div>
+        <div class="medium-3 large-3 columns right"> 
+          <h5> Name: <%= comment.name %> </h5>
+        </div>
+       </div>
+      <% end %>
+       <div class="row">
+         <div class=" large-12 columns">
+            <a href="#" data-reveal-id="myModal"><button class=" button radius large-12 columns advert-button"> Comment</button></a>
+          </div>
+        </div>
+
+<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Comment</h2>
+  <p class="lead">Had a bad experiance? or a great one, let us know below!</p>
+           <%= form_for(advert.comments.new) do |f| %> 
+               <%= f.label(:name) %>
+               <%= f.text_field(:name) %>
+<hr>
+               <%= f.label("Comments") %>
+               <%= f.text_area(:message) %>
+               <%= f.hidden_field(:advert_id) %>
+               <%= f.submit "Post Comment", :class=>"button radius" %>
+           <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+        <hr>
+      <% end %>
+      </div>

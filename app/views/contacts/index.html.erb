@@ -1,0 +1,8 @@
+<h1> Messages </h1>
+<div>
+  <% @contacts.each do |contact| %>
+    <h1> Email: <%= contact.email %> Name: <%= contact.name %> </h1>
+    <p><%= contact.message %></p>
+  <% end %>
+</div>
+
