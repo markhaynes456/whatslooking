@@ -41,13 +41,11 @@
       <% end %>
        <div class="row">
          <div class=" large-12 columns">
-            <a href="#" data-reveal-id="myModal"><button class=" button radius large-12 columns advert-button"> Comment</button></a>
+            <a href="#" data-reveal-id="myModal<%=advert.id%>"><button class=" button radius large-12 columns advert-button"> Comment</button></a>
           </div>
-        </div>
+        </div> 
 
-<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
-
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+<div id="myModal<%=advert.id%>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Comment</h2>
   <p class="lead">Had a bad experiance? or a great one, let us know below!</p>
            <%= form_for(advert.comments.new) do |f| %> 
