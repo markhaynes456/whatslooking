@@ -5,9 +5,9 @@ class AdvertsController < ApplicationController
   # GET /adverts.json
   def index
     if category_exists?
-      @adverts = Advert.where({category:params['category']})
+      @adverts = Advert.where({category:params['category']}).order(created_at: :desc)
     else
-      @adverts = Advert.all
+      @adverts = Advert.all.order(created_at: :desc)
     end
   end
 

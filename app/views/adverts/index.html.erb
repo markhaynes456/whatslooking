@@ -31,17 +31,18 @@
       </div>
       <% advert.comments.all.each do |comment| %>
       <div class="row"> 
-        <div class="medium-7 large-7 columns right">
-          <p> <i>"<%= comment.message%>"</i> </p>
+       
+        <div class="medium-3 large-3 columns left"> 
+          <h5> From: <%= comment.name %> </h5>
         </div>
-        <div class="medium-3 large-3 columns right"> 
-          <h5> Name: <%= comment.name %> </h5>
+        <div class="medium-7 large-7 columns left">
+          <p> <i>"<%= comment.message%>"</i> </p>
         </div>
        </div>
       <% end %>
        <div class="row">
          <div class=" large-12 columns">
-            <a href="#" data-reveal-id="myModal<%=advert.id%>"><button class=" button radius large-12 columns advert-button"> Comment</button></a>
+            <a href="#" data-reveal-id="myModal<%=advert.id%>"><button class=" button radius large-12 columns advert-button primary"> Comment</button></a>
           </div>
         </div> 
 
@@ -55,7 +56,7 @@
                <%= f.label("Comments") %>
                <%= f.text_area(:message) %>
                <%= f.hidden_field(:advert_id) %>
-               <%= f.submit "Post Comment", :class=>"button radius" %>
+               <%= f.submit "Post Comment", :class=>"button radius primary" %>
            <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
