@@ -135,3 +135,7 @@
 .bready {
   font-size:16px;
 }
+
+.bready:hover{
+  background-color:transparent;
+}

@@ -8,7 +8,7 @@ class Advert < ActiveRecord::Base
   validates :category, :presence => true
   validates :body, :presence => true 
 
-  CATEGORIES = {"All"=>"All","Community"=>"Community","Events"=>"Events","Jobs"=>"Jobs","Property"=>"Property","Services"=>"Services","Trades"=>"Trades","Deals"=>"Deals"}
+  CATEGORIES = {"Vehicles"=>"Vehicles","For Sale"=>"For Sale","Property"=>"Property","Jobs"=>"Jobs","Services"=>"Services","Community"=>"Community","Pets"=>"Pets"}
 
   def categories
     CATEGORIES

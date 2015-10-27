@@ -25,13 +25,17 @@
       <% advert.comments.all.each do |comment| %>
       <div class="row"> 
        
+       
+        <div class="medium-2 large-2 columns left">
+		<p></p> 
+        </div>
         <div class="medium-3 large-3 columns left"> 
-          <h5> From: <%= comment.name %> </h5>
+          <h5> <%= comment.name %> </h5>
         </div>
         <div class="medium-7 large-7 columns left">
           <p> <i>"<%= comment.message%>"</i> </p>
         </div>
-       </div>
+      </div>
       <% end %>
        <div class="row">
          <div class=" large-12 columns">
