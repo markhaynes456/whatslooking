@@ -2,19 +2,19 @@
       <div class="row ">
       <ul class="breadcrumbs"> 
         <li><%= link_to("All",{controller:"adverts"},:class=>"bready") %></li>
-        <li><%= link_to("Community",{controller:"adverts",category:"Community"},:class=>"bready") %></li>
-        <li><%= link_to("Events",{controller:"adverts",category:"Events"},:class=>"bready") %></li>
-        <li><%= link_to("Jobs",{controller:"adverts",category:"Jobs"},:class=>"bready") %></li>
+        <li><%= link_to("Vehicles",{controller:"adverts",category:"Vehicles"},:class=>"bready") %></li>
+        <li><%= link_to("For Sale",{controller:"adverts",category:"For Sale"},:class=>"bready") %></li>
         <li><%= link_to("Property",{controller:"adverts",category:"Property"},:class=>"bready") %></li>
+        <li><%= link_to("Jobs",{controller:"adverts",category:"Jobs"},:class=>"bready") %></li>
         <li><%= link_to("Services",{controller:"adverts",category:"Services"},:class=>"bready") %></li>
-        <li><%= link_to("Trades",{controller:"adverts",category:"Trades"},:class=>"bready") %></li>
-        <li><%= link_to("Deals",{controller:"adverts",category:"Deals"},:class=>"bready") %></li>
+        <li><%= link_to("Community",{controller:"adverts",category:"Community"},:class=>"bready") %></li>
+        <li><%= link_to("Pets",{controller:"adverts",category:"Pets"},:class=>"bready") %></li>
       </ul>
       </div>
       <% @adverts.each do |advert| %>
       <div class="row">
         <div class="large-2 medium-2 columns">
-          <a href="#"> <span> </span><%= image_tag(advert.image.url(:thumb),:class=>"round",style:"border-radius:50%") %></a>
+          <a href="#"> <span> </span><%= image_tag(advert.image.url(:thumb),:class=>"round",style:"border-radius:50%; margin-right:auto; margin-left:auto; display:block;") %></a>
         </div>
         <div class="medium-10 large-10 columns">
           <h3> <%= advert.title %> </h3>
@@ -38,9 +38,17 @@
       </div>
       <% end %>
        <div class="row">
-         <div class=" large-12 columns">
-            <a href="#" data-reveal-id="myModal<%=advert.id%>"><button class=" button radius large-12 columns advert-button primary"> Comment</button></a>
+         
+        <div class="medium-2 large-2 columns left">
+		<p></p> 
+        </div>
+         <div class=" large-8 columns">
+            <a href="#" data-reveal-id="myModal<%=advert.id%>"><button class=" button radius large-12 columns advert-button primary">Comment</button></a>
           </div>
+
+        <div class="medium-2 large-2 columns left">
+		<p></p> 
+        </div>
         </div> 
 
 <div id="myModal<%=advert.id%>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
