@@ -1,25 +1,23 @@
 <p id="notice"><%= notice %></p>
-<h1 style="text-align:center">Categories</h1>
       <div class="row ">
       <ul class="breadcrumbs"> 
-        <li><%= link_to("All",controller:"adverts") %></li>
-        <li><%= link_to("Community",controller:"adverts",category:"Community") %></li>
-        <li><%= link_to("Events",controller:"adverts",category:"Events") %></li>
-        <li><%= link_to("Jobs",controller:"adverts",category:"Jobs") %></li>
-        <li><%= link_to("Property",controller:"adverts",category:"Property") %></li>
-        <li><%= link_to("Services",controller:"adverts",category:"Services") %></li>
-        <li><%= link_to("Trades",controller:"adverts",category:"Trades") %></li>
-        <li><%= link_to("Deals",controller:"adverts",category:"Deals") %></li>
+        <li><%= link_to("All",{controller:"adverts"},:class=>"bready") %></li>
+        <li><%= link_to("Community",{controller:"adverts",category:"Community"},:class=>"bready") %></li>
+        <li><%= link_to("Events",{controller:"adverts",category:"Events"},:class=>"bready") %></li>
+        <li><%= link_to("Jobs",{controller:"adverts",category:"Jobs"},:class=>"bready") %></li>
+        <li><%= link_to("Property",{controller:"adverts",category:"Property"},:class=>"bready") %></li>
+        <li><%= link_to("Services",{controller:"adverts",category:"Services"},:class=>"bready") %></li>
+        <li><%= link_to("Trades",{controller:"adverts",category:"Trades"},:class=>"bready") %></li>
+        <li><%= link_to("Deals",{controller:"adverts",category:"Deals"},:class=>"bready") %></li>
       </ul>
       </div>
       <% @adverts.each do |advert| %>
       <div class="row">
-        <div class="large-3 medium-3 columns">
-          <a href="#"> <span> </span><%= image_tag(advert.image.url(:medium)) %></a>
+        <div class="large-2 medium-2 columns">
+          <a href="#"> <span> </span><%= image_tag(advert.image.url(:thumb),:class=>"round",style:"border-radius:50%") %></a>
         </div>
-        <div class="medium-9 large-9 columns">
+        <div class="medium-10 large-10 columns">
           <h3> <%= advert.title %> </h3>
-          <h4> Category: <%= advert.category %> </h4> 
           <p> <%= advert.body %> </p>
           <p> <b> Email: </b> <%= advert.email %> </p>
         </div>
